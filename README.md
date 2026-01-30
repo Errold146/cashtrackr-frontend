@@ -24,7 +24,7 @@ Aplicación web moderna para administración de presupuestos y gastos, construid
 
 ### 1. Clonar el repositorio
 ```bash
-git clone <frontend-repository>
+git clone https://github.com/Errold146/cashtrackr-frontend
 cd frontend
 ```
 
