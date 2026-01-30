@@ -206,3 +206,12 @@ pm2 save
 ## 📞 Soporte
 
 Para reportar bugs o sugerencias, abre un issue en el repositorio.
+
+## 👨‍💻 Autor
+
+Errold Núñez Sánchez
+
+## ✉️ Contacto
+[![GitHub](https://img.shields.io/badge/GitHub-Errold146-181717?logo=github)](https://github.com/Errold146)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-ErroldNúñezS-0A66C2?logo=linkedin)](https://linkedin.com/in/errold-núñez-sánchez) 
+[![Email](https://img.shields.io/badge/Email-ErroldNúñezS-D14836?logo=gmail)](mailto:errold222@gmail.com)
