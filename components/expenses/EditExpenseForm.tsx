@@ -38,7 +38,7 @@ export function EditExpenseForm({ closeModal }: { closeModal: () => void }) {
             .then(data => setExpense(data))
             .catch(error => {
                 console.error('Error:', error)
-                toast.error('Error al cargar el gasto')
+                toast.error('Error al cargar el gasto.')
             })
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
     
@@ -78,7 +78,7 @@ export function EditExpenseForm({ closeModal }: { closeModal: () => void }) {
                 <input
                     type="submit"
                     className="bg-amber-500 w-full p-3 text-white uppercase font-bold hover:bg-amber-600 cursor-pointer transition-colors duration-300"
-                    value='Guardar Cambios'
+                    value='Actualizar Gasto'
                 />
             </form>
         </>
