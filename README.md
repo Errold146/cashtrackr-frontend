@@ -1,36 +1,208 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CashTrackr - Frontend
 
-## Getting Started
+Aplicación web moderna para administración de presupuestos y gastos, construida con Next.js 14 y React 18.
 
-First, run the development server:
+## 🚀 Tecnologías
+
+- **Next.js 14** - Framework React fullstack
+- **React 18** - Librería UI
+- **TypeScript** - Tipado estático
+- **Tailwind CSS** - Estilos CSS
+- **Zod** - Validación de esquemas
+- **Server Actions** - Acciones en servidor
+- **Sonner** - Notificaciones (toasts)
+- **Heroicons** - Iconos SVG
+- **next-auth** - Autenticación
+
+## 📋 Requisitos Previos
+
+- Node.js 18+
+- npm o yarn
+- Variables de entorno configuradas
+
+## 🔧 Instalación
+
+### 1. Clonar el repositorio
+```bash
+git clone <frontend-repository>
+cd frontend
+```
+
+### 2. Instalar dependencias
+```bash
+npm install
+```
+
+### 3. Configurar variables de entorno
+
+Crea un archivo `.env.local` basado en `.env.example`:
+
+```bash
+# API del Backend
+API_URL=http://localhost:4000/api
+
+# URL Pública (para Server Actions)
+NEXT_PUBLIC_URL=http://localhost:3000
+```
+
+**Para Producción:**
+```bash
+API_URL=https://api.tudominio.com/api
+NEXT_PUBLIC_URL=https://tudominio.com
+```
+
+## 🏃 Ejecutar en Desarrollo
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+La aplicación estará disponible en `http://localhost:3000`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🏗️ Build para Producción
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## 📁 Estructura del Proyecto
 
-To learn more about Next.js, take a look at the following resources:
+```
+app/
+├── page.tsx              # Página de inicio
+├── layout.tsx            # Layout principal
+├── globals.css           # Estilos globales
+├── auth/
+│   ├── login/            # Página de login
+│   ├── register/         # Página de registro
+│   ├── confirm-account/  # Confirmar cuenta
+│   ├── forgot-password/  # Recuperar contraseña
+│   └── new-password/     # Establecer nueva contraseña
+└── admin/
+    ├── page.tsx          # Dashboard
+    ├── profile/          # Perfil de usuario
+    ├── budgets/          # Gestión de presupuestos
+    └── expenses/         # Gestión de gastos
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+actions/                   # Server Actions
+├── auth-user-action.ts
+├── create-account-action.ts
+├── create-budget-action.ts
+├── create-expense-action.ts
+├── etc...
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+components/
+├── auth/                 # Componentes de autenticación
+├── budgets/              # Componentes de presupuestos
+├── expenses/             # Componentes de gastos
+├── admin/                # Componentes admin
+├── profile/              # Componentes de perfil
+└── ui/                   # Componentes UI reutilizables
 
-## Deploy on Vercel
+src/
+├── auth/                 # Lógica de autenticación
+├── schemas/              # Esquemas Zod
+├── services/             # Servicios API
+└── utils/                # Funciones auxiliares
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🔐 Seguridad
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- ✅ Server Actions para operaciones seguras
+- ✅ Validación con Zod en cliente y servidor
+- ✅ Manejo de errores robusto
+- ✅ Protección CSRF automática de Next.js
+- ✅ HTTP-only cookies para tokens
+- ✅ Validación de sesión en rutas protegidas
+
+## 🎨 Características
+
+- ✅ Autenticación con JWT
+- ✅ Gestión de presupuestos
+- ✅ Tracking de gastos
+- ✅ Visualización de progreso
+- ✅ Perfil de usuario
+- ✅ Cambio de contraseña
+- ✅ Recuperación de contraseña por email
+- ✅ Confirmación de email
+- ✅ Notificaciones con toasts
+- ✅ UI responsiva y moderna
+
+## 🔄 Flujos principales
+
+### Autenticación
+1. Usuario se registra con email/contraseña
+2. Recibe email de confirmación
+3. Confirma email y activa cuenta
+4. Inicia sesión
+5. Accede al dashboard
+
+### Gestión de Presupuestos
+1. Crea presupuesto con categoría y monto
+2. Agrega gastos al presupuesto
+3. Visualiza progreso con barra
+4. Puede editar o eliminar
+
+### Actualizar Perfil
+1. Va a Perfil → Configuración
+2. Modifica nombre/email
+3. El sistema valida que email no exista
+4. Guarda cambios en BD
+5. Actualiza datos en navbar
+
+## 🚀 Deployment
+
+### Opción 1: Vercel (Recomendado)
+
+1. Conecta tu repositorio a Vercel
+2. Configura variables de entorno
+3. Deploy automático en cada push
+
+```bash
+# Variables necesarias en Vercel:
+API_URL=https://api.tudominio.com/api
+NEXT_PUBLIC_URL=https://tudominio.com
+```
+
+### Opción 2: Railway/Render
+
+1. Conecta tu repositorio
+2. Usa comando: `npm run build && npm start`
+3. Configura variables de entorno
+
+### Opción 3: Servidor propio
+
+```bash
+npm install -g pm2
+pm2 start ecosystem.config.js --name "cashtrackr-frontend"
+pm2 save
+```
+
+## 📝 Notas de Desarrollo
+
+- Server Actions se encuentran en `actions/`
+- Componentes reutilizables en `components/ui/`
+- Esquemas Zod en `src/schemas/`
+- Validación en cliente Y servidor (dual validation)
+- Caché revalidatePath después de cambios
+
+## 🐛 Troubleshooting
+
+**Error de conexión a API:**
+- Verifica que `API_URL` sea correcto
+- Asegúrate que el backend esté corriendo
+- Revisa CORS en backend
+
+**Errores de validación:**
+- Verifica esquemas Zod en `src/schemas/`
+- Comprueba que backend valide igual
+
+**Sesión no se mantiene:**
+- Verifica que cookies estén habilitadas
+- Comprueba que `NEXT_PUBLIC_URL` sea correcto
+- Revisa validación de sesión en `src/auth/`
+
+## 📞 Soporte
+
+Para reportar bugs o sugerencias, abre un issue en el repositorio.
